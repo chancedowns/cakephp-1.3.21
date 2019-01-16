@@ -42,7 +42,7 @@ class DboSqliteTestDb extends DboSqlite {
  * @access protected
  * @return void
  */
-	function _execute($sql) {
+	function _execute($sql, $options = array()) {
 		$this->simulated[] = $sql;
 		return null;
 	}
@@ -113,7 +113,7 @@ class DboSqliteTest extends CakeTestCase {
  *
  * @access public
  */
-	function startTest() {
+	function startTest($method = null) {
 		$this->_initDb();
 	}
 
