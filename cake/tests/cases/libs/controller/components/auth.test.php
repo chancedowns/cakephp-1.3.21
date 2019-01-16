@@ -53,7 +53,7 @@ class TestAuthComponent extends AuthComponent {
  * @access public
  * @return void
  */
-	function _stop() {
+	function _stop($status = 0) {
 		$this->testStop = true;
 	}
 }
@@ -477,7 +477,7 @@ class AuthTest extends CakeTestCase {
  * @access public
  * @return void
  */
-	function startTest() {
+	function startTest($method = null) {
 		$this->_server = $_SERVER;
 		$this->_env = $_ENV;
 
@@ -509,7 +509,7 @@ class AuthTest extends CakeTestCase {
  * @access public
  * @return void
  */
-	function endTest() {
+	function endTest($method = null) {
 		$_SERVER = $this->_server;
 		$_ENV = $this->_env;
 		Configure::write('Acl', $this->_acl);

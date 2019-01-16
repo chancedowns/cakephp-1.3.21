@@ -48,7 +48,7 @@ class ConfigureTest extends CakeTestCase {
  * @access public
  * @return void
  */
-	function endTest() {
+	function endTest($method = null) {
 		App::build();
 	}
 

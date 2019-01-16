@@ -134,7 +134,7 @@ class XcacheEngine extends CacheEngine {
  * @return boolean True if the cache was succesfully cleared, false otherwise
  * @access public
  */
-	function clear() {
+	function clear($check) {
 		$this->__auth();
 		$max = xcache_count(XC_TYPE_VAR);
 		for ($i = 0; $i < $max; $i++) {

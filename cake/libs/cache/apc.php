@@ -121,7 +121,7 @@ class ApcEngine extends CacheEngine {
  * @return boolean True if the cache was succesfully cleared, false otherwise
  * @access public
  */
-	function clear() {
+	function clear($check) {
 		return apc_clear_cache('user');
 	}
 }

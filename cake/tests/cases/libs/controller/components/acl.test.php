@@ -215,7 +215,7 @@ class AclComponentTest extends CakeTestCase {
  * @access public
  * @return void
  */
-	function startTest() {
+	function startTest($method = null) {
 		$this->Acl = new AclComponent();
 	}
 

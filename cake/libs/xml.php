@@ -1082,7 +1082,7 @@ class Xml extends XmlNode {
  * @return string String representation
  * @access public
  */
-	function toString($options = array()) {
+	function toString($options = array(), $depth = 0) {
 		if (is_bool($options)) {
 			$options = array('header' => $options);
 		}
@@ -1365,7 +1365,7 @@ class XmlTextNode extends XmlNode {
  * @return boolean False - not supported
  * @todo make convertEntities work without mb support, convert entities to number entities
  */
-	function append() {
+	function append(&$child, $options = array()) {
 		return false;
 	}
 
