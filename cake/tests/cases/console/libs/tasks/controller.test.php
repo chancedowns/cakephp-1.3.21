@@ -68,7 +68,7 @@ if (!$imported) {
 	define('ARTICLE_MODEL_CREATED', true);
 	App::import('Core', 'Model');
 
-	require_once CAKE . 'libs' . DS . 'model' . DS . 'article.php';
+	require_once CAKE . 'tests' . DS . 'cases' . DS . 'libs' . DS . 'model' . DS . 'article.php';
 
 }
 

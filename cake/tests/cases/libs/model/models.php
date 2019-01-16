@@ -201,7 +201,7 @@ class User extends CakeTestModel {
 	var $validate = array('user' => 'notEmpty', 'password' => 'notEmpty');
 }
 
-require_once('article.php');
+require_once CAKE . 'tests' . DS . 'cases' . DS . 'libs' . DS . 'model' . DS . 'article.php';
 
 /**
  * Model stub for beforeDelete testing
