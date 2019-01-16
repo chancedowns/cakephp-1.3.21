@@ -8,3 +8,6 @@ branches:
   only:
   - master
   - travis
+install:
+  - composer require --prefer-dist simpletest/simpletest "^1.0"
+script: cd app && cake testsuite core all
