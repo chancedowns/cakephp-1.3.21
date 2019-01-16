@@ -98,7 +98,7 @@ class ExceptionExpectation extends SimpleExpectation
      *    @param Exception $compare    Value to check.
      *    @return boolean              True if matched.
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         if (is_string($this->expected)) {
             return ($compare instanceof $this->expected);

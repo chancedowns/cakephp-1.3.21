@@ -49,7 +49,7 @@ class FieldExpectation extends SimpleExpectation
      *    @return boolean              True if correct.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         if ($this->_value === false) {
             return ($compare === false);
@@ -189,7 +189,7 @@ class HttpHeaderExpectation extends SimpleExpectation
      *    @return boolean         True if header present.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return is_string($this->_findHeader($compare));
     }
@@ -299,7 +299,7 @@ class NoHttpHeaderExpectation extends HttpHeaderExpectation
      *    @return boolean         True if header present.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return ($this->_findHeader($compare) === false);
     }
@@ -360,7 +360,7 @@ class TextExpectation extends SimpleExpectation
      *    @return boolean               True if correct.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return (strpos($compare, $this->_substring) !== false);
     }
@@ -428,7 +428,7 @@ class NoTextExpectation extends TextExpectation
      *    @return boolean               True if correct.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return ! parent::test($compare);
     }

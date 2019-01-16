@@ -56,7 +56,7 @@ class ParametersExpectation extends SimpleExpectation
      *    @return boolean              True if correct.
      *    @access public
      */
-    public function test($parameters)
+    public function test(&$parameters)
     {
         if (! is_array($this->_expected)) {
             return true;
@@ -197,7 +197,7 @@ class CallCountExpectation extends SimpleExpectation
      *    @return boolean             True if expected.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return ($this->_count == $compare);
     }
@@ -246,7 +246,7 @@ class MinimumCallCountExpectation extends SimpleExpectation
      *    @return boolean             True if enough.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return ($this->_count <= $compare);
     }
@@ -295,7 +295,7 @@ class MaximumCallCountExpectation extends SimpleExpectation
      *    @return boolean             True if not over.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return ($this->_count >= $compare);
     }
