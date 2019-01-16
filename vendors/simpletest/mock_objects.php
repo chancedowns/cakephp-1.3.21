@@ -1121,7 +1121,8 @@ class SimpleMock
             $test->assert($expectation, $this->getCallCount($method));
         }
         foreach ($this->_max_counts as $method => $expectation) {
-            if ($expectation->test($this->getCallCount($method))) {
+            $callCount = $this->getCallCount($method);
+            if ($expectation->test($callCount)) {
                 $test->assert($expectation, $this->getCallCount($method));
             }
         }
