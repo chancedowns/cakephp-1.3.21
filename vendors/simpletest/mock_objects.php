@@ -828,7 +828,8 @@ class SimpleMock
     public function setReturnValue($method, $value, $args = false)
     {
         $this->_dieOnNoMethod($method, "set return value");
-        $this->_actions->register($method, $args, new SimpleByValue($value));
+        $action = new SimpleByValue($value);
+        $this->_actions->register($method, $args, $action);
     }
 
     /**
