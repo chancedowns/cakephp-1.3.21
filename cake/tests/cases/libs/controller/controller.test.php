@@ -120,7 +120,7 @@ class ControllerPost extends CakeTestModel {
  * @access public
  * @return void
  */
-	function find($type, $options = array()) {
+	function find($type = null, $options = array(), $order = null, $recursive = null) {
 		if ($type == 'popular') {
 			$conditions = array($this->name . '.' . $this->primaryKey .' > ' => '1');
 			$options = Set::merge($options, compact('conditions'));
@@ -448,7 +448,7 @@ class ControllerTest extends CakeTestCase {
  * @access public
  * @return void
  */
-	function endTest() {
+	function endTest($method = null) {
 		App::build();
 	}
 

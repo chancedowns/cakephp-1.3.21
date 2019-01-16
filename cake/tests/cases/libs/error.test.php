@@ -227,7 +227,7 @@ class MyCustomErrorHandler extends ErrorHandler {
  * @access public
  * @return void
  */
-	function _stop() {
+	function _stop($status = 0) {
 		return;
 	}
 }
@@ -246,7 +246,7 @@ class TestErrorHandler extends ErrorHandler {
  * @access public
  * @return void
  */
-	function _stop() {
+	function _stop($status = 0) {
 		return;
 	}
 }

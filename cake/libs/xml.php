@@ -1365,7 +1365,7 @@ class XmlTextNode extends XmlNode {
  * @return boolean False - not supported
  * @todo make convertEntities work without mb support, convert entities to number entities
  */
-	function append(&$child, $options = array()) {
+	function &append(&$child, $options = array()) {
 		return false;
 	}
 
