@@ -114,7 +114,8 @@ class SimpleTestCase
      */
     public function &createInvoker()
     {
-        $invoker = new SimpleErrorTrappingInvoker(new SimpleInvoker($this));
+        $simpleInvoker = new SimpleInvoker($this);
+        $invoker = new SimpleErrorTrappingInvoker($simpleInvoker);
         if (version_compare(phpversion(), '5') >= 0) {
             $invoker = new SimpleExceptionTrappingInvoker($invoker);
         }
