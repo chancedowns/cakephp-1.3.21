@@ -100,7 +100,7 @@ class SanitizeTest extends CakeTestCase {
  * @access public
  * @return void
  */
-	function startTest($method) {
+	function startTest($method = null) {
 		parent::startTest($method);
 		$this->_initDb();
 	}

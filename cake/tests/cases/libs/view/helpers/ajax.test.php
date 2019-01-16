@@ -70,7 +70,7 @@ class PostAjaxTest extends Model {
  * @access public
  * @return void
  */
-	function schema() {
+	function schema($field = false) {
 		return array(
 			'id' => array('type' => 'integer', 'null' => '', 'default' => '', 'length' => '8'),
 			'name' => array('type' => 'string', 'null' => '', 'default' => '', 'length' => '255'),
@@ -92,7 +92,7 @@ class TestAjaxHelper extends AjaxHelper {
  * @access public
  * @return void
  */
-	function _stop() {
+	function _stop($status = 0) {
 	}
 }
 /**
@@ -116,7 +116,7 @@ class TestJavascriptHelper extends JavascriptHelper {
  * @access public
  * @return void
  */
-	function codeBlock($parameter) {
+	function codeBlock($parameter = null, $options = array()) {
 		if (empty($this->codeBlocks)) {
 			$this->codeBlocks = array();
 		}
