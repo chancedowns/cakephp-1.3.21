@@ -19,10 +19,11 @@ require_once(dirname(__FILE__) . '/test_case.php');
  *    @package SimpleTest
  *    @subpackage UnitTester
  */
-class RemoteTestCase {
-    var $_url;
-    var $_dry_url;
-    var $_size;
+class RemoteTestCase
+{
+    public $_url;
+    public $_dry_url;
+    public $_size;
     
     /**
      *    Sets the location of the remote test.
@@ -30,7 +31,8 @@ class RemoteTestCase {
      *    @param string $dry_url   Location for dry run.
      *    @access public
      */
-    function RemoteTestCase($url, $dry_url = false) {
+    public function __construct($url, $dry_url = false)
+    {
         $this->_url = $url;
         $this->_dry_url = $dry_url ? $dry_url : $url;
         $this->_size = false;
@@ -41,7 +43,8 @@ class RemoteTestCase {
      *    @return string           Name of the test.
      *    @access public
      */
-    function getLabel() {
+    public function getLabel()
+    {
         return $this->_url;
     }
 
@@ -53,7 +56,8 @@ class RemoteTestCase {
      *    @returns boolean                   True if no failures.
      *    @access public
      */
-    function run(&$reporter) {
+    public function run(&$reporter)
+    {
         $browser = &$this->_createBrowser();
         $xml = $browser->get($this->_url);
         if (! $xml) {
@@ -74,8 +78,9 @@ class RemoteTestCase {
      *    @return SimpleBrowser           New browser.
      *    @access protected
      */
-    function &_createBrowser() {
-        $browser = &new SimpleBrowser();
+    public function &_createBrowser()
+    {
+        $browser = new SimpleBrowser();
         return $browser;
     }
     
@@ -85,8 +90,9 @@ class RemoteTestCase {
      *    @return SimpleTestXmlListener      XML reader.
      *    @access protected
      */
-    function &_createParser(&$reporter) {
-        $parser = &new SimpleTestXmlParser($reporter);
+    public function &_createParser(&$reporter)
+    {
+        $parser = new SimpleTestXmlParser($reporter);
         return $parser;
     }
     
@@ -95,7 +101,8 @@ class RemoteTestCase {
      *    @return integer           Number of test cases.
      *    @access public
      */
-    function getSize() {
+    public function getSize()
+    {
         if ($this->_size === false) {
             $browser = &$this->_createBrowser();
             $xml = $browser->get($this->_dry_url);
@@ -103,7 +110,7 @@ class RemoteTestCase {
                 trigger_error('Cannot read remote test URL [' . $this->_dry_url . ']');
                 return false;
             }
-            $reporter = &new SimpleReporter();
+            $reporter = new SimpleReporter();
             $parser = &$this->_createParser($reporter);
             if (! $parser->parse($xml)) {
                 trigger_error('Cannot parse incoming XML from [' . $this->_dry_url . ']');
@@ -114,4 +121,3 @@ class RemoteTestCase {
         return $this->_size;
     }
 }
-?>
