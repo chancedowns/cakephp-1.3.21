@@ -60,7 +60,7 @@ class PluginTaskTest extends CakeTestCase {
  * @return void
  * @access public
  */
-	function startTest() {
+	function startTest($method = null) {
 		$this->Dispatcher = new TestPluginTaskMockShellDispatcher();
 		$this->Dispatcher->shellPaths = App::path('shells');
 		$this->Task = new MockPluginTask($this->Dispatcher);
@@ -96,7 +96,7 @@ class PluginTaskTest extends CakeTestCase {
  * @return void
  * @access public
  */
-	function endTest() {
+	function endTest($method = null) {
 		ClassRegistry::flush();
 	}
 

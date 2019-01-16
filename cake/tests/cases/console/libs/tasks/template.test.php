@@ -59,7 +59,7 @@ class TemplateTaskTest extends CakeTestCase {
  * @return void
  * @access public
  */
-	function startTest() {
+	function startTest($method = null) {
 		$this->Dispatcher = new TestTemplateTaskMockShellDispatcher();
 		$this->Task = new MockTemplateTask($this->Dispatcher);
 		$this->Task->Dispatch =& $this->Dispatcher;
@@ -72,7 +72,7 @@ class TemplateTaskTest extends CakeTestCase {
  * @return void
  * @access public
  */
-	function endTest() {
+	function endTest($method = null) {
 		unset($this->Task, $this->Dispatcher);
 		ClassRegistry::flush();
 	}

@@ -75,7 +75,7 @@ class ModelTaskTest extends CakeTestCase {
  * @return void
  * @access public
  */
-	function startTest() {
+	function startTest($method = null) {
 		$this->Dispatcher = new TestModelTaskMockShellDispatcher();
 		$this->Task = new MockModelTask($this->Dispatcher);
 		$this->Task->name = 'ModelTask';
@@ -93,7 +93,7 @@ class ModelTaskTest extends CakeTestCase {
  * @return void
  * @access public
  */
-	function endTest() {
+	function endTest($method = null) {
 		unset($this->Task, $this->Dispatcher);
 		ClassRegistry::flush();
 	}

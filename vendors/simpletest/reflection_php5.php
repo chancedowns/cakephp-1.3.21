@@ -321,7 +321,14 @@ class SimpleReflection
                 $this->_isStaticMethod($name)) {
             return $this->_getFullSignature($name);
         }
-        return $this->_getFullSignature($name);
+
+        try {
+            return $this->_getFullSignature($name);
+        } catch (ReflectionException $exception) {
+            // do nothing for now. I don't know why this might fail...
+        }
+
+        return "function $name()";
     }
 
     /**
