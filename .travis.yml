@@ -14,4 +14,6 @@ before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
 install:
   - echo "<?php\nclass DATABASE_CONFIG {\nvar $test = array('driver' => 'mysql', 'persistent' => false, 'host' => '127.0.0.1', 'login' => 'travis', 'password' => '', 'database' => 'test', 'prefix' => '',););\n}" > ./app/config/database.php
-script: cd app && ../cake/console/cake testsuite core all
+script:
+  - cd app
+  - ../cake/console/cake testsuite core all
