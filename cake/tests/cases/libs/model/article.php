@@ -61,7 +61,7 @@ class Article extends CakeTestModel {
      * @access public
      * @return void
      */
-    function beforeSave() {
+    function beforeSave($options = array()) {
         return $this->beforeSaveReturn;
     }
 

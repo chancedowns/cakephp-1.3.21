@@ -102,7 +102,7 @@ class MysqliTestModel extends Model {
  * @access public
  * @return void
  */
-	function schema() {
+	function schema($field = false) {
 		return array(
 			'id'		=> array('type' => 'integer', 'null' => '', 'default' => '', 'length' => '8'),
 			'client_id'	=> array('type' => 'integer', 'null' => '', 'default' => '0', 'length' => '11'),

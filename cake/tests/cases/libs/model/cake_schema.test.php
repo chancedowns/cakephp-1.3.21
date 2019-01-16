@@ -503,7 +503,7 @@ class CakeSchemaTest extends CakeTestCase {
  * @access public
  * @return void
  */
-	function startTest() {
+	function startTest($method = null) {
 		$this->Schema = new TestAppSchema();
 	}
 
