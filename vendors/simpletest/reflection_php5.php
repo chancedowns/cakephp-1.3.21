@@ -321,7 +321,7 @@ class SimpleReflection
                 $this->_isStaticMethod($name)) {
             return $this->_getFullSignature($name);
         }
-        return "function $name()";
+        return $this->_getFullSignature($name);
     }
 
     /**
