@@ -4,6 +4,8 @@ An unofficial port of CakePHP 1.3.21 to PHP 7.2.
 **:warning: Only use this code, if you have an active CakePHP 1.3 version that you have to port to PHP 7!
 Otherwise use a [current CakePHP version](https://cakephp.org/)!**
 
+[![Build Status](https://travis-ci.org/littleant/cakephp-1.3.21.svg?branch=travis)](https://travis-ci.org/littleant/cakephp-1.3.21)
+
 ## Getting Started
 1. Make sure your code is PHP 7.2 ready. [php7cc](https://github.com/sstalle/php7cc) is a good start, just exclude the cake-directory in your scans.
 2. If you made any changes in the cake-directory, that you want to reapply in the PHP 7-version, write them down.
