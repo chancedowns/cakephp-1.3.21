@@ -10,4 +10,5 @@ branches:
   - travis
 install:
   - composer require --prefer-dist simpletest/simpletest "^1.0"
+  - composer install
 script: cd app && ../cake/console/cake testsuite core all
