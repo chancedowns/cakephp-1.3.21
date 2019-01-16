@@ -8,6 +8,11 @@ branches:
   only:
   - master
   - travis
+services:
+  - mysql
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
 install:
   - COMPOSER_VENDOR_DIR=vendors composer require --prefer-dist simpletest/simpletest "^1.0"
+  - echo "<?php\nclass DATABASE_CONFIG {\nvar $test = array('driver' => 'mysql', 'persistent' => false, 'host' => '127.0.0.1', 'login' => 'travis', 'password' => '', 'database' => 'test', 'prefix' => '',););\n}" > ./app/config/database.php
 script: cd app && ../cake/console/cake testsuite core all
