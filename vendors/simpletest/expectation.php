@@ -118,7 +118,7 @@ class AnythingExpectation extends SimpleExpectation
      *    @return boolean        True.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return true;
     }
@@ -151,7 +151,7 @@ class FailedExpectation extends SimpleExpectation
      *    @return boolean        True.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return false;
     }
@@ -183,7 +183,7 @@ class TrueExpectation extends SimpleExpectation
      *    @return boolean        True on match.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return (boolean)$compare;
     }
@@ -216,7 +216,7 @@ class FalseExpectation extends SimpleExpectation
      *    @return boolean        True on match.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return ! (boolean)$compare;
     }
@@ -263,7 +263,7 @@ class EqualExpectation extends SimpleExpectation
      *    @return boolean              True if correct.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return (($this->_value == $compare) && ($compare == $this->_value));
     }
@@ -322,7 +322,7 @@ class NotEqualExpectation extends EqualExpectation
      *    @return boolean              True if correct.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return ! parent::test($compare);
     }
@@ -380,7 +380,7 @@ class WithinMarginExpectation extends SimpleExpectation
      *    @return boolean              True if correct.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return (($compare <= $this->_upper) && ($compare >= $this->_lower));
     }
@@ -457,7 +457,7 @@ class OutsideMarginExpectation extends WithinMarginExpectation
      *    @return boolean              True if correct.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return ! parent::test($compare);
     }
@@ -561,7 +561,7 @@ class IdenticalExpectation extends EqualExpectation
      *    @return boolean              True if correct.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return SimpleTestCompatibility::isIdentical($this->_getValue(), $compare);
     }
@@ -613,7 +613,7 @@ class NotIdenticalExpectation extends IdenticalExpectation
      *    @return boolean              True if correct.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return ! parent::test($compare);
     }
@@ -675,7 +675,7 @@ class PatternExpectation extends SimpleExpectation
      *    @return boolean               True if correct.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return (boolean)preg_match($this->_getPattern(), $compare);
     }
@@ -754,7 +754,7 @@ class NoPatternExpectation extends PatternExpectation
      *    @return boolean               True if correct.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return ! parent::test($compare);
     }
@@ -826,7 +826,7 @@ class IsAExpectation extends SimpleExpectation
      *    @return boolean               True if correct.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         if (is_object($compare)) {
             return SimpleTestCompatibility::isA($compare, $this->_type);
@@ -898,7 +898,7 @@ class NotAExpectation extends IsAExpectation
      *    @return boolean               True if different.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return ! parent::test($compare);
     }
@@ -946,7 +946,7 @@ class MethodExistsExpectation extends SimpleExpectation
      *    @return boolean               True if correct.
      *    @access public
      */
-    public function test($compare)
+    public function test(&$compare)
     {
         return (boolean)(is_object($compare) && method_exists($compare, $this->_method));
     }
