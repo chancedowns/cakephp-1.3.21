@@ -92,7 +92,7 @@ class AclShellTest extends CakeTestCase {
  * @return void
  * @access public
  */
-	function startTest() {
+	function startTest($method = null) {
 		$this->Dispatcher = new TestAclShellMockShellDispatcher();
 		$this->Task = new MockAclShell($this->Dispatcher);
 		$this->Task->Dispatch =& $this->Dispatcher;
@@ -108,7 +108,7 @@ class AclShellTest extends CakeTestCase {
  * @return void
  * @access public
  */
-	function endTest() {
+	function endTest($method = null) {
 		ClassRegistry::flush();
 	}
 
