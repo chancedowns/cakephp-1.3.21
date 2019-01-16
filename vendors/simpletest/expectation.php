@@ -42,7 +42,7 @@ class SimpleExpectation
      *    @access public
      *    @abstract
      */
-    public function test($compare)
+    public function test(&$compare)
     {
     }
 

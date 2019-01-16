@@ -544,7 +544,7 @@ class SimpleImageSubmitTag extends SimpleWidget
      *    @param integer $y                  Y coordinate of click.
      *    @access public
      */
-    public function write(&$encoding, $x, $y)
+    public function write(&$encoding, $x = null, $y = null)
     {
         if ($this->getName()) {
             $encoding->add($this->getName() . '.x', $x);

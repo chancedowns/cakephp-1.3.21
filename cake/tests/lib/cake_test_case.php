@@ -166,7 +166,7 @@ class CakeTestCase extends UnitTestCase {
  * @return void
  * @access public
  */
-	function startTest($method) {
+	function startTest($method = null) {
 	}
 
 /**
@@ -176,7 +176,7 @@ class CakeTestCase extends UnitTestCase {
  * @return void
  * @access public
  */
-	function endTest($method) {
+	function endTest($method = null) {
 	}
 
 /**
@@ -188,7 +188,7 @@ class CakeTestCase extends UnitTestCase {
  * @return boolean|null
  * @access public
  */
-	function assert($expectation, $compare, $message = '%s') {
+	function assert(&$expectation, $compare, $message = '%s') {
 		if ($this->_should_skip) {
 			return;
 		}
