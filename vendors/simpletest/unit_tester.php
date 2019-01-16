@@ -49,7 +49,8 @@ class UnitTestCase extends SimpleTestCase
      */
     public function assertTrue($result, $message = false)
     {
-        return $this->assert(new TrueExpectation(), $result, $message);
+        $expectation = new TrueExpectation();
+        return $this->assert($expectation, $result, $message);
     }
 
     /**
@@ -64,7 +65,8 @@ class UnitTestCase extends SimpleTestCase
      */
     public function assertFalse($result, $message = '%s')
     {
-        return $this->assert(new FalseExpectation(), $result, $message);
+        $expectation = new FalseExpectation();
+        return $this->assert($expectation, $result, $message);
     }
 
     /**
@@ -113,8 +115,9 @@ class UnitTestCase extends SimpleTestCase
      */
     public function assertIsA($object, $type, $message = '%s')
     {
+        $expectation = new IsAExpectation($type);
         return $this->assert(
-                new IsAExpectation($type),
+            $expectation,
                 $object,
                 $message
         );
@@ -132,8 +135,9 @@ class UnitTestCase extends SimpleTestCase
      */
     public function assertNotA($object, $type, $message = '%s')
     {
+        $expectation = new NotAExpectation($type);
         return $this->assert(
-                new NotAExpectation($type),
+            $expectation,
                 $object,
                 $message
         );
@@ -150,8 +154,9 @@ class UnitTestCase extends SimpleTestCase
      */
     public function assertEqual($first, $second, $message = '%s')
     {
+        $expectation = new EqualExpectation($first);
         return $this->assert(
-                new EqualExpectation($first),
+            $expectation,
                 $second,
                 $message
         );
@@ -168,8 +173,9 @@ class UnitTestCase extends SimpleTestCase
      */
     public function assertNotEqual($first, $second, $message = '%s')
     {
+        $expectation = new NotEqualExpectation($first);
         return $this->assert(
-                new NotEqualExpectation($first),
+            $expectation,
                 $second,
                 $message
         );
@@ -187,8 +193,9 @@ class UnitTestCase extends SimpleTestCase
      */
     public function assertWithinMargin($first, $second, $margin, $message = '%s')
     {
+        $expectation = new WithinMarginExpectation($first, $margin);
         return $this->assert(
-                new WithinMarginExpectation($first, $margin),
+            $expectation,
                 $second,
                 $message
         );
@@ -206,8 +213,9 @@ class UnitTestCase extends SimpleTestCase
      */
     public function assertOutsideMargin($first, $second, $margin, $message = '%s')
     {
+        $expectation = new OutsideMarginExpectation($first, $margin);
         return $this->assert(
-                new OutsideMarginExpectation($first, $margin),
+            $expectation,
                 $second,
                 $message
         );
@@ -224,8 +232,9 @@ class UnitTestCase extends SimpleTestCase
      */
     public function assertIdentical($first, $second, $message = '%s')
     {
+        $expectation = new IdenticalExpectation($first);
         return $this->assert(
-                new IdenticalExpectation($first),
+                $expectation,
                 $second,
                 $message
         );
@@ -242,8 +251,9 @@ class UnitTestCase extends SimpleTestCase
      */
     public function assertNotIdentical($first, $second, $message = '%s')
     {
+        $expectation = new NotIdenticalExpectation($first);
         return $this->assert(
-                new NotIdenticalExpectation($first),
+            $expectation,
                 $second,
                 $message
         );
@@ -330,8 +340,9 @@ class UnitTestCase extends SimpleTestCase
      */
     public function assertPattern($pattern, $subject, $message = '%s')
     {
+        $expectation = new PatternExpectation($pattern);
         return $this->assert(
-                new PatternExpectation($pattern),
+                $expectation,
                 $subject,
                 $message
         );
