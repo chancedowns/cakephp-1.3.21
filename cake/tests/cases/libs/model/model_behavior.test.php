@@ -259,10 +259,10 @@ class TestBehavior extends ModelBehavior {
  * @access public
  * @return void
  */
-	function onError(&$model) {
+	function onError(&$model, $error) {
 		$settings = $this->settings[$model->alias];
 		if (!isset($settings['onError']) || $settings['onError'] == 'off') {
-			return parent::onError($model, $cascade);
+			return parent::onError($model, $error);
 		}
 		echo "onError trigger success";
 	}
@@ -434,7 +434,7 @@ class BehaviorTest extends CakeTestCase {
  * @access public
  * @return void
  */
-	function endTest() {
+	function endTest($method = null) {
 		ClassRegistry::flush();
 	}
 

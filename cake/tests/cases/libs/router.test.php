@@ -49,7 +49,7 @@ class RouterTest extends CakeTestCase {
  *
  * @return void
  */
-	function endTest() {
+	function endTest($method = null) {
 		Configure::write('Routing', $this->_routing);
 	}
 
@@ -2172,7 +2172,7 @@ class CakeRouteTestCase extends CakeTestCase {
  * @access public
  * @return void
  */
-	function startTest() {
+	function startTest($method = null) {
 		$this->_routing = Configure::read('Routing');
 		Configure::write('Routing', array('admin' => null, 'prefixes' => array()));
 		Router::reload();
@@ -2183,7 +2183,7 @@ class CakeRouteTestCase extends CakeTestCase {
  *
  * @return void
  **/
-	function endTest() {
+	function endTest($method = null) {
 		Configure::write('Routing', $this->_routing);
 	}
 
