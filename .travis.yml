@@ -9,6 +9,5 @@ branches:
   - master
   - travis
 install:
-  - composer require --prefer-dist simpletest/simpletest "^1.0"
-  - composer install
+  - COMPOSER_VENDOR_DIR=vendors composer require --prefer-dist simpletest/simpletest "^1.0"
 script: cd app && ../cake/console/cake testsuite core all
