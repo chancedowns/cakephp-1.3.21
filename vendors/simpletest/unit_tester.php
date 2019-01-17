@@ -368,8 +368,9 @@ class UnitTestCase extends SimpleTestCase
      */
     public function assertNoPattern($pattern, $subject, $message = '%s')
     {
+        $expectation = new NoPatternExpectation($pattern);
         return $this->assert(
-                new NoPatternExpectation($pattern),
+                $expectation,
                 $subject,
                 $message
         );

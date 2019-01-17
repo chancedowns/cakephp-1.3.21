@@ -849,7 +849,8 @@ class SimpleMock
     public function setReturnValueAt($timing, $method, $value, $args = false)
     {
         $this->_dieOnNoMethod($method, "set return value sequence");
-        $this->_actions->registerAt($timing, $method, $args, new SimpleByValue($value));
+        $action = new SimpleByValue($value);
+        $this->_actions->registerAt($timing, $method, $args, $action);
     }
 
     /**
